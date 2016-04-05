@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/vector_action"
+        android:orderInCategory="100"
+        android:title="Vector Drawable"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/vector_animation_action"
+        android:orderInCategory="100"
+        android:title="Animated Vector Drawable"
+        app:showAsAction="never" />
+</menu>
