@@ -13,7 +13,6 @@
         android:duration="500"
         android:fillBefore="true"
         android:fillAfter="true"
-
         />
 
 </set>

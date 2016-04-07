@@ -6,4 +6,6 @@
     <color name="colorBlack">#FF000000</color>
     <color name="colorsky">#B3E5FC</color>
     <color name="colorlightgreen">#80CBC4</color>
+    <color name="colorlightblue">#8C9EFF</color>
+    <color name="color_dark_green">#00695C</color>
 </resources>

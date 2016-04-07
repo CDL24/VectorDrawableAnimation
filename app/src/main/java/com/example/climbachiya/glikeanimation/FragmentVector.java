@@ -22,18 +22,20 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by C.limbachiya on 4/5/2016.
  */
 public class FragmentVector extends Fragment {
 
-    private Animation btnAnim, scaleAnim;
+    private Animation btnAnim, scaleAnim, txtAnimation;
     RelativeLayout layout;
-    ImageView imgReward,imgRewardClone, imgHeart;
+    ImageView imgReward,imgRewardClone, imgHeart, imgAnimatedHeart;
     boolean isLiked = false;
     boolean isHearted = false;
     MediaPlayer mp = null;
+    TextView txtTitle;
 
     @Nullable
     @Override
@@ -48,11 +50,20 @@ public class FragmentVector extends Fragment {
         layout = (RelativeLayout) view.findViewById(R.id.root);
         imgReward = (ImageView) view.findViewById(R.id.imgReward);
         imgRewardClone =(ImageView) view.findViewById(R.id.imgRewardClone);
-        imgHeart =(ImageView) view.findViewById(R.id.image_heart);
+        imgHeart = (ImageView) view.findViewById(R.id.image_heart);
+        imgAnimatedHeart = (ImageView) view.findViewById(R.id.image_animated_heart);
+        txtTitle = (TextView) view.findViewById(R.id.text_title);
+
+        loadTextAnimation();
 
         changeBackground();
 
         loadAndSetAnimation();
+
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.heart_expand);
+        set.setTarget(imgAnimatedHeart);
+        set.start();
 
         imgReward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +77,18 @@ public class FragmentVector extends Fragment {
                 startAnimationHeart();
             }
         });
+    }
+
+    private void loadTextAnimation() {
+        txtAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.textview_animation);
+
+        txtTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtTitle.startAnimation(txtAnimation);
+            }
+        });
+
     }
 
     private void startAnimationHeart() {

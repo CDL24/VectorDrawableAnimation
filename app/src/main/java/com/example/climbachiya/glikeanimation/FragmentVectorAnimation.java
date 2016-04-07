@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,7 +24,8 @@ import android.widget.RelativeLayout;
  */
 public class FragmentVectorAnimation extends Fragment {
 
-    ImageView imgTruck;
+    ImageView imgTruck,imgView, imgRefreshCircle, imgRefreshCircleFlat;
+    ImageView imgHorizontal,imgVertical;
     RelativeLayout llRoot;
 
     @Nullable
@@ -40,24 +40,60 @@ public class FragmentVectorAnimation extends Fragment {
 
         llRoot = (RelativeLayout) view.findViewById(R.id.root);
         imgTruck = (ImageView) view.findViewById(R.id.imgTruck);
+        imgView = (ImageView) view.findViewById(R.id.imageView);
+        imgRefreshCircle = (ImageView) view.findViewById(R.id.imageCircleRefresh);
+        imgRefreshCircleFlat = (ImageView) view.findViewById(R.id.imageCircleRefreshFlat);
+        imgHorizontal = (ImageView) view.findViewById(R.id.image_horizontal);
+        imgVertical = (ImageView) view.findViewById(R.id.image_vertical);
 
         changeBackground();
 
-        /*AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
-                R.animator.property_animator);
-        set.setTarget(imgTruck);
-        set.start();*/
+        loadGreenVector();
 
-        //loading xml from anim folder
-        //Animation transAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.truck_tanslate);
-        //You can now apply the animation to a view
-        //imgTruck.startAnimation(transAnimation);
+        loadBlueVector();
 
-        /*RotateAnimation rAnim = new RotateAnimation(0, 359, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rAnim.setDuration(1000);
-        imgTruck.startAnimation(rAnim);*/
+        loadPinkVector();
+
+        loadRectangleAnimation();
 
         animateImageView(imgTruck);
+    }
+
+    private void loadRectangleAnimation() {
+
+        AnimatorSet setHorzAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.horizontal_line_rotate);
+        setHorzAnim.setTarget(imgHorizontal);
+        setHorzAnim.start();
+
+        AnimatorSet setVetlAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.vertical_line_rotate);
+        setVetlAnim.setTarget(imgVertical);
+        setVetlAnim.start();
+    }
+
+    private void loadPinkVector() {
+
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.circle_expand);
+        set.setTarget(imgView);
+        set.start();
+    }
+
+    private void loadBlueVector() {
+
+        AnimatorSet setAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.circle_expand_rotate);
+        setAnim.setTarget(imgRefreshCircle);
+        setAnim.start();
+    }
+
+    private void loadGreenVector() {
+
+        AnimatorSet setFlat = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(),
+                R.animator.circle_expand_rotate_flat);
+        setFlat.setTarget(imgRefreshCircleFlat);
+        setFlat.start();
     }
 
     private void changeBackground() {

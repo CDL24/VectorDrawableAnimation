@@ -17,16 +17,68 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/ic_local_shipping"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_marginRight="61dp"
+        android:layout_below="@+id/imageCircleRefresh"
+        android:layout_toLeftOf="@+id/imageCircleRefresh"
+        android:layout_toStartOf="@+id/imageCircleRefresh"
+        android:layout_marginEnd="61dp" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageView"
-        android:layout_above="@+id/imgTruck"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/test_vector"
-        android:layout_marginBottom="68dp" />
+        app:srcCompat="@drawable/ic_refresh"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/imgTruck"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="61dp" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageCircleRefresh"
+        app:srcCompat="@drawable/ic_refresh_rotate"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_marginTop="133dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageCircleRefreshFlat"
+        app:srcCompat="@drawable/ic_refresh_rotate_flat"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_toRightOf="@+id/imgTruck"
+        android:layout_toEndOf="@+id/imgTruck" />
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/relativeLayout"
+        android:layout_above="@+id/imgTruck"
+        android:layout_alignLeft="@+id/imgTruck"
+        android:layout_alignStart="@+id/imgTruck"
+        android:layout_marginBottom="70dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_horizontal"
+            app:srcCompat="@drawable/ic_horizontal_dots"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:id="@+id/image_vertical"
+            app:srcCompat="@drawable/ic_vertical_dots"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
