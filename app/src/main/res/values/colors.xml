@@ -8,4 +8,6 @@
     <color name="colorlightgreen">#80CBC4</color>
     <color name="colorlightblue">#8C9EFF</color>
     <color name="color_dark_green">#00695C</color>
+    <color name="color_purple">#8e44ad</color>
+    <color name="color_dark_orange">#d35400</color>
 </resources>

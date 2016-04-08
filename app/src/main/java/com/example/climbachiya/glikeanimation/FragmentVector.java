@@ -9,8 +9,6 @@ import android.app.Fragment;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +29,7 @@ public class FragmentVector extends Fragment {
 
     private Animation btnAnim, scaleAnim, txtAnimation;
     RelativeLayout layout;
-    ImageView imgReward,imgRewardClone, imgHeart, imgAnimatedHeart;
+    ImageView imgReward,imgRewardClone, imgHeart, imgAnimatedHeart, imgMoodHappy1, imgMoodHappy2, imgSpoon;
     boolean isLiked = false;
     boolean isHearted = false;
     MediaPlayer mp = null;
@@ -52,7 +50,17 @@ public class FragmentVector extends Fragment {
         imgRewardClone =(ImageView) view.findViewById(R.id.imgRewardClone);
         imgHeart = (ImageView) view.findViewById(R.id.image_heart);
         imgAnimatedHeart = (ImageView) view.findViewById(R.id.image_animated_heart);
+        imgMoodHappy1 = (ImageView) view.findViewById(R.id.image_mood_happy_1);
+        imgMoodHappy2 = (ImageView) view.findViewById(R.id.image_mood_happy_2);
+        imgSpoon = (ImageView) view.findViewById(R.id.image_spoon);
+
         txtTitle = (TextView) view.findViewById(R.id.text_title);
+
+        flipMoodLeft();
+
+        flipMoodRight();
+
+        flipSpoon();
 
         loadTextAnimation();
 
@@ -77,6 +85,29 @@ public class FragmentVector extends Fragment {
                 startAnimationHeart();
             }
         });
+    }
+
+    private void flipSpoon() {
+        ObjectAnimator flip = ObjectAnimator.ofFloat(imgSpoon, "rotationY", 0f, 180f);
+        flip.setDuration(800);
+        flip.setRepeatCount(Animation.INFINITE);
+        flip.start();
+    }
+
+    private void flipMoodRight() {
+
+        ObjectAnimator flip = ObjectAnimator.ofFloat(imgMoodHappy1, "rotationX", 180f, 0f);
+        flip.setDuration(800);
+        flip.setRepeatCount(Animation.INFINITE);
+        flip.start();
+    }
+
+    private void flipMoodLeft() {
+
+        ObjectAnimator flip = ObjectAnimator.ofFloat(imgMoodHappy2, "rotationX", 0f, 180f);
+        flip.setDuration(800);
+        flip.setRepeatCount(Animation.INFINITE);
+        flip.start();
     }
 
     private void loadTextAnimation() {

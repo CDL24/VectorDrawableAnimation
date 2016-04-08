@@ -33,19 +33,21 @@
         android:layout_height="40dp"
         android:id="@+id/image_heart"
         app:srcCompat="@drawable/ic_favorite_black"
-        android:layout_marginRight="52dp"
-        android:layout_marginEnd="52dp"
-        android:layout_alignTop="@+id/imgRewardClone"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/text_title"
+        android:layout_toRightOf="@+id/image_mood_happy_1"
+        android:layout_toEndOf="@+id/image_mood_happy_1"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp" />
 
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/image_animated_heart"
         app:srcCompat="@drawable/ic_favorite_blue"
-        android:layout_below="@+id/imgRewardClone"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/image_mood_happy_1"
+        android:layout_alignLeft="@+id/image_mood_happy_1"
+        android:layout_alignStart="@+id/image_mood_happy_1"
+        android:layout_marginTop="84dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,5 +59,31 @@
         android:layout_below="@+id/image_animated_heart"
         android:layout_alignRight="@+id/image_heart"
         android:layout_alignEnd="@+id/image_heart" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/image_mood_happy_1"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_mood_happy"
+     />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/image_mood_happy_2"
+        app:srcCompat="@drawable/ic_mood_happy"
+        android:layout_alignTop="@+id/image_mood_happy_1"
+        android:layout_toRightOf="@+id/image_mood_happy_1"
+        android:layout_toEndOf="@+id/image_mood_happy_1" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/image_spoon"
+        app:srcCompat="@drawable/ic_restaurant_menu"
+        android:layout_above="@+id/text_title"
+        android:layout_alignRight="@+id/imgRewardClone"
+        android:layout_alignEnd="@+id/imgRewardClone" />
 
 </RelativeLayout>
