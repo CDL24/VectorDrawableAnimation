@@ -15,9 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ViewAnimator;
 
 /**
  * Created by C.limbachiya on 4/5/2016.
@@ -45,6 +47,21 @@ public class FragmentVectorAnimation extends Fragment {
         imgRefreshCircleFlat = (ImageView) view.findViewById(R.id.imageCircleRefreshFlat);
         imgHorizontal = (ImageView) view.findViewById(R.id.image_horizontal);
         imgVertical = (ImageView) view.findViewById(R.id.image_vertical);
+
+        /*ArcTranslateAnimation animation = new ArcTranslateAnimation(
+                0, 600, 0, 0);
+        animation
+                .setInterpolator(new LinearInterpolator());
+        animation.setDuration(3000);
+        animation.setRepeatMode(ValueAnimator.REVERSE);
+        animation.setRepeatCount(-1);
+        animation.setFillAfter(true);
+        imgTruck.startAnimation(animation);*/
+
+        Animation anim = new CircularAnimation(imgTruck, 100);
+        anim.setDuration(3000);
+        anim.setRepeatCount(Animation.INFINITE);
+        imgTruck.startAnimation(anim);
 
         changeBackground();
 
